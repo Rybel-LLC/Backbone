@@ -1,5 +1,7 @@
 <?php /** @noinspection PhpIncludeInspection */
 
+namespace Rybel\backbone;
+
 class site
 {
     private $headers;

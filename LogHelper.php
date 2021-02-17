@@ -1,5 +1,7 @@
 <?php
 
+namespace Rybel\backbone;
+
 use Aws\CloudWatchLogs\CloudWatchLogsClient;
 use Maxbanton\Cwh\Handler\CloudWatch;
 use Monolog\Logger;

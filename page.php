@@ -1,5 +1,7 @@
 <?php
 
+namespace Rybel\backbone;
+
 class page
 {
     private $content;
