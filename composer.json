@@ -12,6 +12,7 @@
             "email": "ryan.cobelli@rybel-llc.com"
         }
     ],
+    "minimum-stability": "stable",
     "autoload": {
         "psr-4": {"Rybel\\backbone\\": "src/"}
     }
