@@ -50,7 +50,7 @@ class LogHelper
 
     public function logMessage($message, $severity = LogVal::info)
     {
-        $e = new Exception();
+        $e = new \Exception();
 
         $data = array(
             "message" => $message,

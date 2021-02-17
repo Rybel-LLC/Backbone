@@ -60,7 +60,7 @@ class Helper
             $verb = explode(' ', trim($statement))[0];
             if ($verb == 'SELECT' || $verb == 'SHOW') {
                 // Return the data
-                $output = $handle->fetchAll(PDO::FETCH_ASSOC);
+                $output = $handle->fetchAll(\PDO::FETCH_ASSOC);
 
                 // Handle only 1 row being returned
                 if (strpos($statement, 'LIMIT 1') !== false) {
