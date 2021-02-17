@@ -11,5 +11,8 @@
             "name": "Ryan Cobelli",
             "email": "ryan.cobelli@rybel-llc.com"
         }
-    ]
+    ],
+    "autoload": {
+        "psr-4": {"Rybel\\backbone\\": "src/"}
+    },
 }
