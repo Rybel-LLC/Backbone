@@ -1,0 +1,15 @@
+{
+    "name": "rybel-llc/backbone",
+    "description": "Core classes from Rybel projects",
+    "type": "library",
+    "require": {
+        "aws/aws-sdk-php": "^3.173",
+        "maxbanton/cwh": "^2.0"
+    },
+    "authors": [
+        {
+            "name": "Ryan Cobelli",
+            "email": "ryan.cobelli@rybel-llc.com"
+        }
+    ]
+}
