@@ -60,16 +60,32 @@ class site
     private function renderErrors()
     {
         foreach ($this->errors as $error) {
-            echo '<script>alert("';
-            echo $error;
-            echo '")</script>';
+            echo "<script>
+
+            // Check if there is bootstrap
+            if (!$.fn.modal) {
+                document.write('<div class=\"alert alert-danger mt-3 mx-5\" role=\"alert\">" . $error . "</div>');
+            } else {
+                alert('" . $error . "')
+            }
+            
+            </script>";
         }
     }
 
     private function renderSuccess()
     {
         if ($this->success) {
-            echo '<script>alert("Success!")</script>';
+            echo "<script>
+
+            // Check if there is bootstrap
+            if (!$.fn.modal) {
+                document.write('<div class=\"alert alert-success mt-3 mx-5\" role=\"alert\">Success!</div>');
+            } else {
+                alert('Success!')
+            }
+            
+            </script>";
         }
     }
 }
