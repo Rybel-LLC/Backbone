@@ -23,7 +23,7 @@ class site
     public function render()
     {
         if ($this->page->requiresAuth && empty($_SESSION['id'])) {
-            header("Location: index.php");
+            header("Location: /");
             die();
         }
 
