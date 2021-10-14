@@ -1,8 +1,8 @@
-#Backbone
+# Backbone
 
 The internal utilities framework for Rybel LLC. 
 
-__No guarantee of correctness of interoperability is made at this point in time.__
+__No guarantees of correctness or interoperability is made.__
 
 ## Functionality
 
