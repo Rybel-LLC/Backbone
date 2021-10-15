@@ -68,7 +68,7 @@ class site
 
             // Check if there is bootstrap
             if (!$.fn.modal) {
-                document.write('<div class=\"alert alert-danger mt-3 mx-5\" role=\"alert\">" . $error . "</div>');
+                document.write('<div class=\"alert alert-danger mt-3\" style=\"margin-left: 20px; margin-right: 20px\" role=\"alert\">" . $error . "</div>');
             } else {
                 alert('" . $error . "')
             }
@@ -84,7 +84,7 @@ class site
 
             // Check if there is bootstrap
             if (!$.fn.modal) {
-                document.write('<div class=\"alert alert-success mt-3 mx-5\" role=\"alert\">Success!</div>');
+                document.write('<div class=\"alert alert-success mt-3\" style=\"margin-left: 20px; margin-right: 20px\" role=\"alert\">Success!</div>');
             } else {
                 alert('Success!')
             }
