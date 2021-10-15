@@ -59,6 +59,10 @@ class site
 
     private function renderErrors()
     {
+        if ($this->errors == null) {
+            return;
+        }
+
         foreach ($this->errors as $error) {
             echo "<script>
 
