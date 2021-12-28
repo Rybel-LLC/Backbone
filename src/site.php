@@ -63,6 +63,10 @@ class site
             return;
         }
 
+        if (is_string($this->errors)) {
+            $this->errors = array($this->errors);
+        }
+
         foreach ($this->errors as $error) {
             echo "<script>
 
