@@ -12,11 +12,6 @@ class page
         $this->requiresAuth = $loginNeeded;
     }
 
-    public function __destruct()
-    {
-        // clean up here
-    }
-
     public function render()
     {
         echo $this->content;
