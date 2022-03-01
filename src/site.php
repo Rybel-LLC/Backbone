@@ -11,7 +11,12 @@ class site
     private $errors;
     private $success;
 
-    public function __construct($pageTitle, $errors = null, $success = false)
+    /**
+     * @param string $pageTitle
+     * @param string|array|null $errors
+     * @param bool|null $success
+     */
+    public function __construct(string $pageTitle, string|array|null $errors = null, bool|null $success = false)
     {
         $this->headers = array();
         $this->footers = array();
@@ -20,6 +25,9 @@ class site
         $this->success = $success;
     }
 
+    /**
+     * @return void
+     */
     public function render()
     {
         if ($this->page->requiresAuth && empty($_SESSION['id'])) {
@@ -42,21 +50,36 @@ class site
         }
     }
 
-    public function addHeader($file)
+    /**
+     * @param string $file
+     * @return void
+     */
+    public function addHeader(string $file)
     {
         $this->headers[] = $file;
     }
 
-    public function addFooter($file)
+    /**
+     * @param string $file
+     * @return void
+     */
+    public function addFooter(string $file)
     {
         $this->footers[] = $file;
     }
 
+    /**
+     * @param page $page
+     * @return void
+     */
     public function setPage(page $page)
     {
         $this->page = $page;
     }
 
+    /**
+     * @return void
+     */
     private function renderErrors()
     {
         if ($this->errors == null) {
@@ -82,6 +105,9 @@ class site
         }
     }
 
+    /**
+     * @return void
+     */
     private function renderSuccess()
     {
         if ($this->success) {
