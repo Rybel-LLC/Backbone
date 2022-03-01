@@ -68,10 +68,11 @@ class site
         }
 
         foreach ($this->errors as $error) {
+            $error = addslashes($error);
             echo "<script>
 
             // Check if there is bootstrap
-            if (!$.fn.modal) {
+            if (typeof($.fn.popover) !== 'undefined') {
                 document.write('<div class=\"alert alert-danger mt-3\" style=\"margin-left: 20px; margin-right: 20px\" role=\"alert\">" . $error . "</div>');
             } else {
                 alert('" . $error . "')
@@ -87,7 +88,7 @@ class site
             echo "<script>
 
             // Check if there is bootstrap
-            if (!$.fn.modal) {
+            if (typeof($.fn.popover) !== 'undefined') {
                 document.write('<div class=\"alert alert-success mt-3\" style=\"margin-left: 20px; margin-right: 20px\" role=\"alert\">Success!</div>');
             } else {
                 alert('Success!')

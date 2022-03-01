@@ -2,6 +2,8 @@
 
 namespace Rybel\backbone;
 
+use PDO;
+
 class Helper
 {
     protected $config;
@@ -13,7 +15,7 @@ class Helper
     *
     * @param $input array The config array (contains config info, DB object, etc.)
     */
-    public function __construct($input)
+    public function __construct(array $input)
     {
         $this->config = $input;
         $this->conn = $input['dbo'];
@@ -40,7 +42,7 @@ class Helper
      * @param ...$args string Variable list of args to be prepared into the statement
      * @return bool|array
      */
-    public function query($statement, ...$args)
+    public function query(string $statement, ...$args)
     {
         // Create the actual query
         $handle = $this->conn->prepare($statement);
@@ -48,7 +50,7 @@ class Helper
         for ($i=1; $i < count($args); $i++) {
             // null can't be passed by reference
             if ($args[$i] === null) {
-                $handle->bindValue($i, null);
+                $handle->bindValue($i, null, PDO::PARAM_INT);
             } else {
                 $handle->bindValue($i, $args[$i]);
             }
