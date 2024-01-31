@@ -12,17 +12,15 @@ class LogHelper
     private $logger;
     private $type;
 
-    public function __construct($config)
+    public function __construct(string $appName, array $awsConfig, LogStream $type)
     {
-        $appName = $config['appName'];
+        $this->type = $type;
 
-        $this->type = $config['type'];
-
-        $cwClient  = new CloudWatchLogsClient($config['aws']);
+        $cwClient  = new CloudWatchLogsClient($awsConfig);
         // Log group name, will be created if none
-        $cwGroupName = 'web-logs';
+        $cwGroupName = 'app-logs';
         // Log stream name, will be created if none
-        $cwStreamNameInstance = (gethostname() == "Ryans-MBP" ? "dev-" : "ec2-") . $this->type;
+        $cwStreamNameInstance = ($_SERVER['REMOTE_ADDR'] == '127.0.0.1' ? "dev-" : "prod-") . $this->type;
         // Days to keep logs, 14 by default
         $cwRetentionDays = 60;
 

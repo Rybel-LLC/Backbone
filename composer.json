@@ -6,7 +6,8 @@
         "aws/aws-sdk-php": "^3.173",
         "maxbanton/cwh": "^2.0",
         "ext-pdo": "*",
-        "ext-json": "*"
+        "ext-json": "*",
+        "onelogin/php-saml": "^4.1.0"
     },
     "authors": [
         {
