@@ -20,6 +20,15 @@ class Helper
     {
         $this->config = $input;
         $this->conn = $input['dbo'];
+
+        if (!isset($input['aws'])) {
+            // Assume we are on an EC2 instance in IAD
+            $input['aws'] = array(
+                'region'  => 'us-east-1',
+                'version' => 'latest'
+            );
+        }
+
         $this->log = new LogHelper($input['appName'], $input['aws'], $input['type']);
     }
 
