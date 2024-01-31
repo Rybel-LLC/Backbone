@@ -85,8 +85,8 @@ class SamlAuthHelper extends AuthHelper {
             ),
         );
         
-        $this->samlAuth = new OneLogin\Saml2\Auth($settingsInfo);
-        $this->samlSettings = new OneLogin\Saml2\Settings($settingsInfo, true);
+        $this->samlAuth = new \OneLogin\Saml2\Auth($settingsInfo);
+        $this->samlSettings = new \OneLogin\Saml2\Settings($settingsInfo, true);
     }
 
     public function isLoggedIn() {
@@ -128,7 +128,7 @@ class SamlAuthHelper extends AuthHelper {
                 $_SESSION['samlNameIdSPNameQualifier'] = $this->samlAuth->getNameIdSPNameQualifier();
                 $_SESSION['samlSessionIndex'] = $this->samlAuth->getSessionIndex();
                 unset($_SESSION['AuthNRequestID']);
-                if (isset($_POST['RelayState']) && OneLogin\Saml2\Utils::getSelfURL() != $_POST['RelayState']) {
+                if (isset($_POST['RelayState']) && \OneLogin\Saml2\Utils::getSelfURL() != $_POST['RelayState']) {
                     // To avoid 'Open Redirect' attacks, before execute the 
                     // redirection confirm the value of $_POST['RelayState'] is a // trusted URL.
                     $this->samlAuth->redirectTo($_POST['RelayState']);
@@ -187,12 +187,12 @@ class SamlAuthHelper extends AuthHelper {
                     header('Content-Type: text/xml');
                     echo $metadata;
                 } else {
-                    throw new OneLogin\Saml2\Error(
+                    throw new \OneLogin\Saml2\Error(
                         'Invalid SP metadata: '.implode(', ', $errors),
-                        OneLogin\Saml2\Error::METADATA_SP_INVALID
+                        \OneLogin\Saml2\Error::METADATA_SP_INVALID
                     );
                 }
-            } catch (Exception $e) {
+            } catch (\Exception $e) {
                 echo $e->getMessage();
             }
             die();
