@@ -12,7 +12,7 @@ class LogHelper
     private $logger;
     private $type;
 
-    public function __construct(string $appName, array $awsConfig, LogStream $type)
+    public function __construct(string $appName, array $awsConfig, string $type)
     {
         $this->type = $type;
 

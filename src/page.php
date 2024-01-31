@@ -6,12 +6,11 @@ class page
 {
     private $headers = [];
     private $footers = [];
-    private $content;
     private $errors = [];
     private $success = false;
     private $authHelper;
 
-    public function render()
+    public function render($content)
     {
         foreach ($this->headers as $header) {
             include $header;
@@ -20,7 +19,7 @@ class page
         $this->renderErrors();
         $this->renderSuccess();
 
-        echo $this->content;
+        echo $content;
 
         foreach ($this->footers as $footer) {
             include $footer;
@@ -42,17 +41,11 @@ class page
         $this->errors[] = $error;
     }
 
-    public function setContent($content) 
-    {
-        $this->content = $content;
-    }
-
     public function setSuccess(bool $success)
     {
         $this->success = $success;
     }
     
-
     private function renderErrors()
     {
         foreach ($this->errors as $error) {
