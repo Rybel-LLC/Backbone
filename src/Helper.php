@@ -76,7 +76,11 @@ class Helper
 
                 // Handle only 1 row being returned
                 if (strpos($statement, 'LIMIT 1') !== false) {
-                    $output = $output[0];
+                    if (empty($output)) {
+                        $output = [];
+                    } else {
+                        $output = $output[0];
+                    }
                 }
             } else {
                 $output = true;
