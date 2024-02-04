@@ -18,9 +18,9 @@ class LogHelper
 
         $cwClient  = new CloudWatchLogsClient($awsConfig);
         // Log group name, will be created if none
-        $cwGroupName = 'app-logs';
+        $cwGroupName = 'web-logs';
         // Log stream name, will be created if none
-        $cwStreamNameInstance = ($_SERVER['REMOTE_ADDR'] == '127.0.0.1' ? "dev-" : "prod-") . $this->type;
+        $cwStreamNameInstance = $appName . ($_SERVER['REMOTE_ADDR'] == '127.0.0.1' ? "-dev-" : "-prod-") . $this->type;
         // Days to keep logs, 14 by default
         $cwRetentionDays = 60;
 
