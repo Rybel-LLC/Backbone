@@ -29,7 +29,11 @@ class Helper
             );
         }
 
-        $this->log = new LogHelper($input['appName'], $input['aws'], $input['type']);
+        if (!isset($input['logLocal']) || $input['logLocal'] == false) {
+            $this->log = new CWLogHelper($input['appName'], $input['aws'], $input['type']);
+        } else {
+            $this->log = new LocalLogHelper($input['type']);
+        }
     }
 
     public function getLastInsertID() {
