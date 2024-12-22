@@ -36,6 +36,10 @@ class Helper
         }
     }
 
+    public function getLogger() {
+        return $this->log;
+    }
+
     public function getLastInsertID() {
         return $this->conn->lastInsertId();
     }
